@@ -1,0 +1,11 @@
+/* Change `ostentus-i2c` to match your device's bus (example: `&i2c2`) */
+
+&i2c1 {
+    /* Needed for I2C writes used by libostentus */
+
+    sgm41296@21 {
+        status = "okay";
+        compatible = "sgmicro,sgm41296";
+        reg = <0x21>;   
+    };
+};

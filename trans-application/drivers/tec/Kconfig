@@ -1,0 +1,31 @@
+config LIB_SGM41296
+	bool "Enable the driver library for the Thermoelectric Cooler Driver"
+	default y
+	depends on DT_HAS_SGMICRO_SGM41296_ENABLED
+	select I2C
+	help
+	  Helper functions for controlling the Thermoelectric Cooler Driver.
+	  Features include XXX
+
+if LIB_SGM41296
+
+config SGM41296_INIT_PRIORITY
+	int "sgm41296 init priority"
+	default 90
+	help
+	  sgm41296 initialization priority.
+
+config SGM41296_LOG_LEVEL
+	int "Default log level for libsgm41296"
+	default 4
+	help
+		The default log level, which is used to filter log messages.
+
+		0: None
+		1: Error
+		2: Warn
+		3: Info
+		4: Debug
+		5: Verbose
+
+endif #LIB_SGM41296

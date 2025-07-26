@@ -1,0 +1,9 @@
+# Copyright (c) 2024 Golioth, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+description: "Thermoelectric Cooler Driver"
+
+compatible: "sgmicro,sgm41296"
+
+#i2c-device ? i2c-controller
+include: [i2c-device.yaml]

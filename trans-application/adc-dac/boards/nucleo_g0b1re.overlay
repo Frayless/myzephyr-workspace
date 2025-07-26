@@ -1,0 +1,43 @@
+/* Change `ostentus-i2c` to match your device's bus (example: `&i2c2`) */
+
+/ {
+	zephyr,user {
+
+		dac = <&spi_dac>;
+		dac-channel-id = <1>;
+		dac-resolution = <12>;
+
+	};
+
+	aliases{
+			piadc = &spi_adc;
+	};
+};
+
+&spi1 {
+	 status = "okay";
+
+	 spi_adc: adc@0 {
+		compatible = "pisemi,pi15592";
+		reg = <0>;
+		#io-channel-cells = <1>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		spi-max-frequency = <10000000>;
+		channel@0 {
+			reg = <0>;
+			zephyr,gain = "ADC_GAIN_1";
+			zephyr,reference = "ADC_REF_INTERNAL";
+			zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+			zephyr,resolution = <12>;
+		};
+	};
+
+	spi_dac: dac@1 {
+		compatible = "pisemi,pi15592";
+		reg = <1>;
+		#io-channel-cells = <1>;
+		spi-max-frequency = <10000000>;
+	};
+};
+

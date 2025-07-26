@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2023 Golioth, Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#ifndef APP_DRIVERS_PI15592_REGMAP_H_
+#define APP_DRIVERS_PI15592_REGMAP_H_
+
+/*register configuration*/
+#define PI15592_REG_NOP 0x00
+#define PI15592_REG_DAC_RB 0x01
+#define PI15592_REG_ADC_SEQ 0x02
+#define PI15592_REG_GEN_CFG 0x03
+#define PI15592_REG_ADC_CFG 0x04
+#define PI15592_REG_DAC_CFG 0x05
+#define PI15592_REG_PD_CFG 0x06
+#define PI15592_REG_RB_AND_LDAC 0x07
+#define PI15592_REG_GPO_CFG 0x08
+#define PI15592_REG_GPIO_WD 0x09
+#define PI15592_REG_GPI_CFG 0x0A     /*1010*/
+#define PI15592_REG_RF 0x0B          /*1011*/
+#define PI15592_REG_OD_CFG 0x0C     /*1100*/
+#define PI15592_REG_TRI_CFG 0x0D     /*1101*/
+#define PI15592_REG_SOFTWARE_RESET 0x0F
+
+#define PI15592_REG_SHIFT_VAL 11
+#define PI15592_REG_READBACK_SHIFT_VAL 2
+#define PI15592_GPI_READBACK_EN BIT(10)
+#define PI15592_LDAC_READBACK_EN BIT(6)
+#define PI15592_EN_REF BIT(9)
+
+#define PI15592_RESET_VAL 0xDAC
+
+#define PI15592_PIN_MAX 8U
+#define PI15592_RESOLUTION 12
+
+/*dac*/
+
+#define PI15592_DAC_WRITE_EN BIT(15)
+#define PI15592_DAC_WRITE_SHIFT_VAL 12
+
+
+#endif
